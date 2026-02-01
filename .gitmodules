@@ -4,24 +4,32 @@
 [submodule "apps/inventory"]
 	path = apps/inventory
 	url = git@github.com:Gold-Team-Project/golden-harvest-inventory.git
+	branch = main
 [submodule "apps/customer-support"]
 	path = apps/customer-support
 	url = git@github.com:Gold-Team-Project/golden-harvest-custom-support.git
+	branch = main
 [submodule "apps/master-data"]
 	path = apps/master-data
 	url = git@github.com:Gold-Team-Project/golden-harvest-master-data.git
+	branch = main
 [submodule "apps/auth"]
 	path = apps/auth
 	url = git@github.com:Gold-Team-Project/golden-harvest-master-data.git
+	branch = main
 [submodule "apps/user"]
 	path = apps/user
 	url = git@github.com:Gold-Team-Project/golden-harvest-user.git
+	branch = main
 [submodule "apps/notification"]
 	path = apps/notification
 	url = git@github.com:Gold-Team-Project/golden-harvest-notification.git
+	branch = main
 [submodule "apps/ai"]
 	path = apps/ai
 	url = git@github.com:Gold-Team-Project/golden-harvest-AI.git
+	branch = main
 [submodule "apps/frontend"]
 	path = apps/frontend
 	url = git@github.com:Gold-Team-Project/golden-harvest-frontend.git
+	branch = main
