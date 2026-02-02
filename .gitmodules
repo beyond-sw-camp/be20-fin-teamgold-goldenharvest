@@ -1,6 +1,7 @@
 [submodule "apps/sales"]
 	path = apps/sales
 	url = git@github.com:Gold-Team-Project/golden-harvest-sales.git
+	branch = main
 [submodule "apps/inventory"]
 	path = apps/inventory
 	url = git@github.com:Gold-Team-Project/golden-harvest-inventory.git
@@ -32,4 +33,8 @@
 [submodule "apps/frontend"]
 	path = apps/frontend
 	url = git@github.com:Gold-Team-Project/golden-harvest-frontend.git
+	branch = main
+[submodule "apps/purchases"]
+	path = apps/purchases
+	url = git@github.com:Gold-Team-Project/golden-harvest-purchases.git
 	branch = main
