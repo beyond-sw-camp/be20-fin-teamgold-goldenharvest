@@ -130,10 +130,34 @@
 <br>
 
 ### 4. **API 명세서**
+<details> 
+<summary> API 명세서 이미지</summary>
+<img alt="Image" src="readme/1.png" />
+<img alt="Image" src="readme/2.png" />
+<img alt="Image" src="readme/3.png" />
+<img alt="Image" src="readme/4.png" />
+<img alt="Image" src="readme/5.png" />
+<img alt="Image" src="readme/6.png" />
+</details>
+<br>
 
 
 ### 5. **FIGMA**
 [FIGMA 바로가기](https://www.figma.com/design/C76lMTHuExvnOCFg2q12LU/GoldenHarvest?node-id=0-1&p=f&t=dC1Wz7BUplinmjtQ-0)에서 확인하실 수 있습니다.
+
+### 6. **BACKEND TEST**
+<details> 
+<summary> 단위 테스트 결과서</summary>
+<img alt="Image" src="readme/backend-test.png" />
+</details>
+<br>
+
+### 7. **FRONTEND TEST**
+<details> 
+<summary> UI / UX 단위 테스트</summary>
+<img alt="Image" src="readme/front-test.png" />
+</details>
+<br>
 
 <br>
 
