@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # --- Infrastructure ---
   redis:
@@ -9,7 +7,7 @@ services:
       - "6379:6379"
 
   kafka:
-    image: bitnami/kafka:3.6
+    image: confluentinc/cp-kafka:7.5.0
     container_name: gh-kafka
     ports:
       - "9092:9092"
