@@ -1,26 +1,14 @@
 services:
-  # 1. Common 빌드 전용: 가장 먼저 실행되어 공유 볼륨에 JAR를 배포함
-  common-build:
-    image: amazoncorretto:21-alpine
-    volumes:
-      - ./config/common:/app  # gradlew가 들어있는 폴더를 직접 마운트
-      - m2-cache:/root/.m2
-    working_dir: /app
-    command: >
-      sh -c "chmod +x ./gradlew && ./gradlew publishToMavenLocal --no-daemon"
-
   # --- Infrastructure ---
   redis:
     image: redis:7-alpine
     container_name: gh-redis
-    ports:
-      - "6379:6379"
+    ports: ["6379:6379"]
 
   kafka:
     image: confluentinc/cp-kafka:7.5.0
     container_name: gh-kafka
-    ports:
-      - "9092:9092"
+    ports: ["9092:9092"]
     environment:
       - KAFKA_CFG_NODE_ID=1
       - KAFKA_CFG_PROCESS_ROLES=controller,broker
@@ -29,144 +17,125 @@ services:
       - KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=1@localhost:9093
       - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
 
-  # --- Frontend (Vite) ---
+  # --- Frontend & AI (독립 빌드) ---
   frontend:
     build: ./apps/frontend
     container_name: gh-frontend
-    ports:
-      - "5173:5173"
+    ports: ["5173:5173"]
     env_file: .env
 
-  # --- Spring Boot Services ---
+  # --- Spring Boot Services (통합 Dockerfile 및 개별 포트 적용) ---
   api-gateway:
-    build: ./apps/api-gateway
+    build: &spring-build
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        SERVICE_NAME: api-gateway
     container_name: gh-api-gateway
-    volumes: &common-m2
-      - m2-cache:/root/.m2:ro
-    depends_on: &common-deps
-      common-build:
-        condition: service_completed_successfully
-      kafka:
-        condition: service_started
-      redis:
-        condition: service_started
-    ports:
-      - "8080:8080"
+    depends_on: [kafka, redis]
+    ports: ["8080:8080"]
     environment: &common-env
       SPRING_PROFILES_ACTIVE: local
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
       SPRING_REDIS_HOST: redis
       SERVER_PORT: 8080
     env_file: .env
-    command: ["java", "-jar", "app.jar"]
 
   auth-service:
-    build: ./apps/auth
+    build:
+      <<: *spring-build
+      args: { SERVICE_NAME: auth }
     container_name: gh-auth
-    volumes: *common-m2
-    depends_on: *common-deps
-    ports:
-      - "8081:8081"
+    depends_on: [kafka, redis]
+    ports: ["8081:8081"]
     environment:
       <<: *common-env
       SERVER_PORT: 8081
     env_file: .env
-    command: ["java", "-jar", "app.jar"]
 
   user-service:
-    build: ./apps/user
+    build:
+      <<: *spring-build
+      args: { SERVICE_NAME: user }
     container_name: gh-user
-    volumes: *common-m2
-    depends_on: *common-deps
-    ports:
-      - "8082:8082"
+    depends_on: [kafka, redis]
+    ports: ["8082:8082"]
     environment:
       <<: *common-env
       SERVER_PORT: 8082
     env_file: .env
-    command: ["java", "-jar", "app.jar"]
 
   sales-service:
-    build: ./apps/sales
+    build:
+      <<: *spring-build
+      args: { SERVICE_NAME: sales }
     container_name: gh-sales
-    volumes: *common-m2
-    depends_on: *common-deps
-    ports:
-      - "8083:8083"
+    depends_on: [kafka, redis]
+    ports: ["8083:8083"]
     environment:
       <<: *common-env
       SERVER_PORT: 8083
     env_file: .env
-    command: ["java", "-jar", "app.jar"]
 
   inventory-service:
-    build: ./apps/inventory
+    build:
+      <<: *spring-build
+      args: { SERVICE_NAME: inventory }
     container_name: gh-inventory
-    volumes: *common-m2
-    depends_on: *common-deps
-    ports:
-      - "8084:8084"
+    depends_on: [kafka, redis]
+    ports: ["8084:8084"]
     environment:
       <<: *common-env
       SERVER_PORT: 8084
     env_file: .env
-    command: ["java", "-jar", "app.jar"]
 
   master-data-service:
-    build: ./apps/master-data
+    build:
+      <<: *spring-build
+      args: { SERVICE_NAME: master-data }
     container_name: gh-master-data
-    volumes: *common-m2
-    depends_on: *common-deps
-    ports:
-      - "8085:8085"
+    depends_on: [kafka, redis]
+    ports: ["8085:8085"]
     environment:
       <<: *common-env
       SERVER_PORT: 8085
     env_file: .env
-    command: ["java", "-jar", "app.jar"]
 
   purchases-service:
-    build: ./apps/purchases
+    build:
+      <<: *spring-build
+      args: { SERVICE_NAME: purchases }
     container_name: gh-purchases
-    volumes: *common-m2
-    depends_on: *common-deps
-    ports:
-      - "8086:8086"
+    depends_on: [kafka, redis]
+    ports: ["8086:8086"]
     environment:
       <<: *common-env
       SERVER_PORT: 8086
     env_file: .env
-    command: ["java", "-jar", "app.jar"]
 
   notification-service:
-    build: ./apps/notification
+    build:
+      <<: *spring-build
+      args: { SERVICE_NAME: notification }
     container_name: gh-notification
-    volumes: *common-m2
-    depends_on: *common-deps
-    ports:
-      - "8087:8087"
+    depends_on: [kafka, redis]
+    ports: ["8087:8087"]
     environment:
       <<: *common-env
       SERVER_PORT: 8087
     env_file: .env
-    command: ["java", "-jar", "app.jar"]
 
   customer-support-service:
-    build: ./apps/customer-support
+    build:
+      <<: *spring-build
+      args: { SERVICE_NAME: customer-support }
     container_name: gh-customer-support
-    volumes: *common-m2
-    depends_on: *common-deps
-    ports:
-      - "8088:8088"
+    depends_on: [kafka, redis]
+    ports: ["8088:8088"]
     environment:
       <<: *common-env
       SERVER_PORT: 8088
     env_file: .env
-    command: ["java", "-jar", "app.jar"]
-
-# 공유 볼륨 정의
-volumes:
-  m2-cache:
 
 networks:
   default:
