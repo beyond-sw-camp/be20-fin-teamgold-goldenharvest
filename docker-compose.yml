@@ -16,21 +16,15 @@ services:
     command: npm run dev -- --host 0.0.0.0
     env_file: .env
 
-  # === Spring Boot Services ===
+  # === Spring Boot Services (Template Pattern 적용) ===
   api-gateway:
     build:
-      context: .
-      dockerfile: ./Dockerfile
-      args:
-        SERVICE_NAME: api-gateway
+      context: ./apps/api-gateway
+      dockerfile: ../../Dockerfile
     container_name: gh-api-gateway
-    ports:
-      - "8080:8080"
-    networks:
-      - gh-network
-    depends_on:
-      - redis
-      - kafka
+    ports: ["8080:8080"]
+    networks: [gh-network]
+    depends_on: [redis, kafka]
     env_file: .env
     environment:
       SERVER_PORT: 8080
@@ -39,161 +33,113 @@ services:
 
   auth-service:
     build:
-      context: .
-      dockerfile: ./Dockerfile
-      args:
-        SERVICE_NAME: auth
+      context: ./apps/auth
+      dockerfile: ../../Dockerfile
     container_name: gh-auth
-    ports:
-      - "8081:8081"
-    networks:
-      - gh-network
-    depends_on:
-      - redis
-      - kafka
+    ports: ["8081:8081"]
+    networks: [gh-network]
+    depends_on: [redis, kafka]
     env_file: .env
     environment:
       SERVER_PORT: 8081
       SPRING_PROFILES_ACTIVE: local
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
 
-  customer-support-service:
-    build:
-      context: .
-      dockerfile: ./Dockerfile
-      args:
-        SERVICE_NAME: customer-support
-    container_name: gh-customer-support
-    ports:
-      - "8088:8088"
-    networks:
-      - gh-network
-    depends_on:
-      - redis
-      - kafka
-    env_file: .env
-    environment:
-      SERVER_PORT: 8088
-      SPRING_PROFILES_ACTIVE: local
-      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
-
-  master-data-service:
-    build:
-      context: .
-      dockerfile: ./Dockerfile
-      args:
-        SERVICE_NAME: master-data
-    container_name: gh-master-data
-    ports:
-      - "8085:8085"
-    networks:
-      - gh-network
-    depends_on:
-      - redis
-      - kafka
-    env_file: .env
-    environment:
-      SERVER_PORT: 8085
-      SPRING_PROFILES_ACTIVE: local
-      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
-
-  inventory-service:
-    build:
-      context: .
-      dockerfile: ./Dockerfile
-      args:
-        SERVICE_NAME: inventory
-    container_name: gh-inventory
-    ports:
-      - "8084:8084"
-    networks:
-      - gh-network
-    depends_on:
-      - redis
-      - kafka
-    env_file: .env
-    environment:
-      SERVER_PORT: 8084
-      SPRING_PROFILES_ACTIVE: local
-      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
-
-  sales-service:
-    build:
-      context: .
-      dockerfile: ./Dockerfile
-      args:
-        SERVICE_NAME: sales
-    container_name: gh-sales
-    ports:
-      - "8083:8083"
-    networks:
-      - gh-network
-    depends_on:
-      - redis
-      - kafka
-    env_file: .env
-    environment:
-      SERVER_PORT: 8083
-      SPRING_PROFILES_ACTIVE: local
-      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
-
   user-service:
     build:
-      context: .
-      dockerfile: ./Dockerfile
-      args:
-        SERVICE_NAME: user
+      context: ./apps/user
+      dockerfile: ../../Dockerfile
     container_name: gh-user
-    ports:
-      - "8082:8082"
-    networks:
-      - gh-network
-    depends_on:
-      - redis
-      - kafka
+    ports: ["8082:8082"]
+    networks: [gh-network]
+    depends_on: [redis, kafka]
     env_file: .env
     environment:
       SERVER_PORT: 8082
       SPRING_PROFILES_ACTIVE: local
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
 
+  sales-service:
+    build:
+      context: ./apps/sales
+      dockerfile: ../../Dockerfile
+    container_name: gh-sales
+    ports: ["8083:8083"]
+    networks: [gh-network]
+    depends_on: [redis, kafka]
+    env_file: .env
+    environment:
+      SERVER_PORT: 8083
+      SPRING_PROFILES_ACTIVE: local
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+
+  inventory-service:
+    build:
+      context: ./apps/inventory
+      dockerfile: ../../Dockerfile
+    container_name: gh-inventory
+    ports: ["8084:8084"]
+    networks: [gh-network]
+    depends_on: [redis, kafka]
+    env_file: .env
+    environment:
+      SERVER_PORT: 8084
+      SPRING_PROFILES_ACTIVE: local
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+
+  master-data-service:
+    build:
+      context: ./apps/master-data
+      dockerfile: ../../Dockerfile
+    container_name: gh-master-data
+    ports: ["8085:8085"]
+    networks: [gh-network]
+    depends_on: [redis, kafka]
+    env_file: .env
+    environment:
+      SERVER_PORT: 8085
+      SPRING_PROFILES_ACTIVE: local
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+
+  purchases-service:
+    build:
+      context: ./apps/purchases
+      dockerfile: ../../Dockerfile
+    container_name: gh-purchases
+    ports: ["8086:8086"]
+    networks: [gh-network]
+    depends_on: [redis, kafka]
+    env_file: .env
+    environment:
+      SERVER_PORT: 8086
+      SPRING_PROFILES_ACTIVE: local
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+
   notification-service:
     build:
-      context: .
-      dockerfile: ./Dockerfile
-      args:
-        SERVICE_NAME: notification
+      context: ./apps/notification
+      dockerfile: ../../Dockerfile
     container_name: gh-notification
-    ports:
-      - "8087:8087"
-    networks:
-      - gh-network
-    depends_on:
-      - redis
-      - kafka
+    ports: ["8087:8087"]
+    networks: [gh-network]
+    depends_on: [redis, kafka]
     env_file: .env
     environment:
       SERVER_PORT: 8087
       SPRING_PROFILES_ACTIVE: local
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
 
-  purchases-service:
+  customer-support-service:
     build:
-      context: .
-      dockerfile: ./Dockerfile
-      args:
-        SERVICE_NAME: purchases
-    container_name: gh-purchases
-    ports:
-      - "8086:8086"
-    networks:
-      - gh-network
-    depends_on:
-      - redis
-      - kafka
+      context: ./apps/customer-support
+      dockerfile: ../../Dockerfile
+    container_name: gh-customer-support
+    ports: ["8088:8088"]
+    networks: [gh-network]
+    depends_on: [redis, kafka]
     env_file: .env
     environment:
-      SERVER_PORT: 8086
+      SERVER_PORT: 8088
       SPRING_PROFILES_ACTIVE: local
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
 
@@ -201,35 +147,27 @@ services:
   redis:
     image: redis:7-alpine
     container_name: gh-redis
-    ports:
-      - "6379:6379"
-    networks:
-      - gh-network
+    ports: ["6379:6379"]
+    networks: [gh-network]
 
   kafka:
     image: confluentinc/cp-kafka:7.5.0
     container_name: gh-kafka
-    ports:
-      - "9092:9092"
+    ports: ["9092:9092"]
     environment:
-      # === KRaft 필수 설정 ===
       KAFKA_ENABLE_KRAFT: 'yes'
       KAFKA_NODE_ID: 1
       KAFKA_PROCESS_ROLES: 'broker,controller'
       KAFKA_CONTROLLER_QUORUM_VOTERS: '1@kafka:9093'
       KAFKA_CONTROLLER_LISTENER_NAMES: 'CONTROLLER'
-      # === 리스너 설정 ===
       KAFKA_LISTENERS: 'PLAINTEXT://:9092,CONTROLLER://:9093'
       KAFKA_ADVERTISED_LISTENERS: 'PLAINTEXT://kafka:9092'
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: 'CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT'
       KAFKA_INTER_BROKER_LISTENER_NAME: 'PLAINTEXT'
-      # === 클러스터 아이디 (KRaft 모드 필수) ===
       CLUSTER_ID: 'MkU3OEVBNTcwNTJENDM2Qk'
-      # === 기타 로그 설정 ===
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
       KAFKA_LOG_DIRS: '/var/lib/kafka/data'
-    networks:
-      - gh-network
+    networks: [gh-network]
