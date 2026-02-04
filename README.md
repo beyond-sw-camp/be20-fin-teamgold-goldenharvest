@@ -148,7 +148,7 @@
 ### 6. **BACKEND TEST**
 <details> 
 <summary> 단위 테스트 결과서</summary>
-<img alt="Image" src="readme/backend-test.png" />
+<img alt="Image" src="readme/backend-test1.png" />
 </details>
 <br>
 
@@ -161,6 +161,9 @@
 
 ### 8. **통합테스트 결과확인서**
 [통합테스트 결과확인서 바로가기](https://docs.google.com/spreadsheets/d/1p8wzwzDGl9R8osDn-bAnT8OMyAyctOpUV4opBEI55zY/edit?gid=668838072#gid=668838072)에서 확인하실 수 있습니다.
+
+### 9. **CI / CI 확인서**
+
 
 =======
 >>>>>>> a647d01af394d30f062fb9687cc5f253a56821db
