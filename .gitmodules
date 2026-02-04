@@ -42,3 +42,6 @@
 	path = apps/api-gateway
 	url = git@github.com:Gold-Team-Project/golden-harvest-api-gateway.git
 	branch = main
+[submodule "config/common"]
+	path = config/common
+	url = git@github.com:Gold-Team-Project/golden-harvest-common-all.git
