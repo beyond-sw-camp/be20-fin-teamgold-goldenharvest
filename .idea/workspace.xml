@@ -4,21 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b4bce94-f8ae-446d-9197-76957b4fccae" name="변경" comment="통합테스트 확인서">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/api-gateway" beforeDir="false" afterPath="$PROJECT_DIR$/apps/api-gateway" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/api-gateway/src/main/java/com/teamgold/apigateway/filter/JwtAuthGlobalFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/api-gateway/src/main/java/com/teamgold/apigateway/filter/JwtAuthGlobalFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/frontend" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/frontend/src/api/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/src/api/axios.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/frontend/src/views/chat/ChatWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/src/views/chat/ChatWidget.vue" afterDir="false" />
-    </list>
+    <list default="true" id="3b4bce94-f8ae-446d-9197-76957b4fccae" name="변경" comment="통합테스트 확인서" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/apps/frontend" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/apps/api-gateway" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -54,7 +47,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "d1bccc24",
+    "git-widget-placeholder": "267c1b0e",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
