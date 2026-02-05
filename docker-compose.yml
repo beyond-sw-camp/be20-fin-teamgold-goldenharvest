@@ -143,6 +143,18 @@ services:
       SPRING_PROFILES_ACTIVE: local
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
 
+  ai-service:
+    build:
+      context: ./apps/ai
+      dockerfile: Dockerfile
+    container_name: gh-ai
+    ports:
+      - "8000:8000"
+    networks: [ gh-network ]
+    depends_on: [ postgres ]
+    env_file:
+      - ./apps/ai/.env
+
   # === Infrastructure ===
   redis:
     image: redis:7-alpine
@@ -171,3 +183,21 @@ services:
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
       KAFKA_LOG_DIRS: '/var/lib/kafka/data'
     networks: [gh-network]
+
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: erp_postgres
+    env_file:
+      - ./apps/ai/.env
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks: [gh-network]
+
+volumes:
+  postgres_data:
