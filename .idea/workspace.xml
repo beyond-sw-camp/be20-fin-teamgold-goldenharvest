@@ -8,6 +8,15 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/ai" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ai" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/ai/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ai/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ai/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ai/app/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ai/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ai/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/ai/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ai/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/api-gateway" beforeDir="false" afterPath="$PROJECT_DIR$/apps/api-gateway" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/api-gateway/src/main/java/com/teamgold/apigateway/filter/JwtAuthGlobalFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/apps/api-gateway/src/main/java/com/teamgold/apigateway/filter/JwtAuthGlobalFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/api-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/apps/api-gateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/frontend" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/frontend/src/api/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/src/api/axios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/frontend/src/views/chat/ChatWidget.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/frontend/src/views/chat/ChatWidget.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,6 +108,9 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="통합테스트 확인서" />
