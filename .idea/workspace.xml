@@ -13,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/apps/inventory" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/apps/ai" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -49,7 +49,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "f4cd9948",
+    "git-widget-placeholder": "854cac26",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
@@ -83,7 +83,7 @@
       <workItem from="1770171047500" duration="847000" />
       <workItem from="1770251548740" duration="4252000" />
       <workItem from="1770366756018" duration="1104000" />
-      <workItem from="1770436573326" duration="4744000" />
+      <workItem from="1770436573326" duration="5767000" />
     </task>
     <task id="LOCAL-00001" summary="통합테스트 확인서">
       <option name="closed" value="true" />
