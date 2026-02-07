@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b4bce94-f8ae-446d-9197-76957b4fccae" name="변경" comment="통합테스트 확인서">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/ai" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ai" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/ai/app/agents/wording_agent.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ai/app/agents/wording_agent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/ai/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ai/app/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/ai/app/rag/ingest.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ai/app/rag/ingest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/ai/app/rag/service.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ai/app/rag/service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/ai/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/apps/ai/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +16,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/apps/ai" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
@@ -89,7 +91,7 @@
       <workItem from="1770171047500" duration="847000" />
       <workItem from="1770251548740" duration="4252000" />
       <workItem from="1770366756018" duration="1104000" />
-      <workItem from="1770436573326" duration="9475000" />
+      <workItem from="1770436573326" duration="9803000" />
     </task>
     <task id="LOCAL-00001" summary="통합테스트 확인서">
       <option name="closed" value="true" />
