@@ -12,19 +12,19 @@
 </tr>
 <tr>
 <td align="center">
-    <img width="250" height="180" alt="Image" src="readme/USER/강성현.png" />
+    <img width="250" height="180" alt="Image" src="readme/kang.png" />
 </td>
 <td align="center">
-    <img width="250" height="180" alt="Image" src="readme/USER/김진.png" />
+    <img width="250" height="180" alt="Image" src="readme/kim.jpeg" />
 </td>
 <td align="center">
-    <img width="250" height="180" alt="Image" src="readme/USER/박규진.png" />
+    <img width="250" height="180" alt="Image" src="readme/park.jpeg" />
 </td>
 <td align="center">
-    <img width="250" height="180" alt="Image" src="readme/USER/정동욱.png" />
+    <img width="250" height="180" alt="Image" src="readme/jung.jpeg" />
 </td>
 <td align="center">
-    <img width="250" height="180" alt="image" src="readme/USER/최지원.png" />
+    <img width="250" height="180" alt="image" src="readme/choi.jpeg" />
 
 </td>
 </tr>
